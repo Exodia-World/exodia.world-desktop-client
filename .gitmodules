@@ -1,0 +1,3 @@
+[submodule "app"]
+	path = app
+	url = git@bitbucket.org:exodia-world/exodia.world-web-client.git
