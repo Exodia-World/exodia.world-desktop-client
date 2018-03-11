@@ -48,8 +48,8 @@ function createWindow() {
     win.maximize();
   }, 200);
 
-  win.webContents.openDevTools();
   if(isDev) {
+    win.webContents.openDevTools();
   }
 
   ipcMain.on('open-link', (evt, link) => {

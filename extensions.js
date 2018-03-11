@@ -25,7 +25,7 @@ const loadMetamaskFromManifest = (session, metamaskPath) => {
 const createPopup = (file) => {
   return new BrowserWindow({
     title: 'MetaMask',
-    width: 360,
+    width: 370,
     height: 520,
     type: 'popup',
     resizable: false
