@@ -14,21 +14,21 @@ exodia.world-desktop-client wraps [exodia.world-web-client](https://bitbucket.or
 
 ## How it works
 
-This project is built on top of Muon, which is a security-focused fork from Electron with support for Chrome extensions. The boilerplate sets up a Muon application and injects the MetaMask extension. 
+This project is built on top of Muon, which is a security-focused fork from Electron with support for Chrome extensions. It sets up a Muon application and injects the MetaMask extension. 
 
 1. The npm scripts download the MetaMask code from the Chrome Store to the local folder.
-2. The Muon application renders your local HTML and injects the MetaMask content scripts.
-3. Your frontend code should use `chrome.ipcRenderer.send('message')` to communicate with Muon's main process and trigger the MetaMask popups.
-4. MetaMask handles all the wallet management side of the application. So you don't have to deal directly with user's private keys.
+2. The Muon application renders local HTML and injects the MetaMask content scripts.
+3. The frontend code should use `chrome.ipcRenderer.send('message')` to communicate with Muon's main process and trigger the MetaMask popups.
+4. MetaMask handles all the wallet management side of the application. So we don't have to deal directly with user's private keys.
 5. Electron Builder packs and generates installers for Linux, Windows and MacOS.
 
 ## How to use
 
 Because exodia.world-web-client was added as a submodule to this project, the first time you clone you have to run `git submodule init` to initialize the submodule.
 
-Subsequently, run `git submodule update` to pull any changes on the submodule.
+Subsequently, run `git submodule update` to pull any changes to the submodule.
 
-Commit changes on exodia.world-web-client just as usual (by going into the `app` directory first), but remember to add unstaged changes of `app` from this project's base directory as well.
+Commit changes to exodia.world-web-client just as usual (by going into the `app` directory first), but remember to add unstaged changes of `app` from this project's base directory as well.
 
 If you don't get what I mean, check this [basic explanation about Git Submodules](https://gist.github.com/gitaarik/8735255).
 
