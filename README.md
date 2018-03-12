@@ -1,85 +1,44 @@
-# Electron (Muon) + Metamask Boilerplate
-Easily create a desktop version of your dApp using Electron (Muon) + MetaMask.
+# Exodia.World
 
-### ![](https://cdn-images-1.medium.com/max/800/1*MYbvRTB7etsgyJGVarSFWQ.png)
+A decentralized digital gaming marketplace and platform that enables game studios to sell their games directly to players all around the world without a middleman in a secure and transparent way.
 
-## Introduction
+---
 
-When it comes to decentralized apps, the more the users don’t have to rely on third parties in order to use the application, the more trust they can put in.
+# Exodia.World Desktop Client
 
-Serving your frontend through cloud servers is great because anyone using a browser with MetaMask can access it, but you’re still depending on third-parties to host the code. This means that if the servers are down, *e.g.*maintenance or a DDoS attack, the users won’t be able to use the application.
+A desktop client for Exodia.World's marketplace, digital wallet, crowdfunding, etc. This project is built on top of Electron (Muon) + Metamask.
 
-On the other hand, if you created an offline version of your dApp using Electron, you wouldn't be able to  use MetaMask to manage the wallets... until now.
+## Overview
 
-Using this boilerplate, you'll be able to wrap your dApp code within a Muon application that includes MetaMask directly from Chrome Store!
-
-
+exodia.world-desktop-client wraps [exodia.world-web-client](https://bitbucket.org/exodia-world/exodia.world-web-client) as a *submodule* so that we may build the same code for both web and desktop users.
 
 ## How it works
 
-This boilerplate is built on top of Muon, which is a security-focused fork from Electron with support for Chrome extensions. The boilerplate sets up a Muon application and injects the MetaMask extension. 
+This project is built on top of Muon, which is a security-focused fork from Electron with support for Chrome extensions. It sets up a Muon application and injects the MetaMask extension. 
 
 1. The npm scripts download the MetaMask code from the Chrome Store to the local folder.
-2. The Muon application renders your local HTML and injects the MetaMask content scripts.
-3. Your frontend code should use `chrome.ipcRenderer.send('message')` to communicate with Muon's main process and trigger the MetaMask popups.
-4. MetaMask handles all the wallet management side of the application. So you don't have to deal directly with user's private keys.
+2. The Muon application renders local HTML and injects the MetaMask content scripts.
+3. The frontend code should use `chrome.ipcRenderer.send('message')` to communicate with Muon's main process and trigger the MetaMask popups.
+4. MetaMask handles all the wallet management side of the application. So we don't have to deal directly with user's private keys.
 5. Electron Builder packs and generates installers for Linux, Windows and MacOS.
-
-
 
 ## How to use
 
-[Fork the repo](https://github.com/SwapyNetwork/electron-metamask-boilerplate#fork-destination-box) and clone it to your local machine
+Because exodia.world-web-client was added as a submodule to this project, the first time you clone you have to run `git submodule init` to initialize the submodule.
 
-`git clone https://github.com/YourAccount/electron-metamask-boilerplate.git`
+Subsequently, run `git submodule update` to pull any changes to the submodule.
 
+Commit changes to exodia.world-web-client just as usual (by going into the `app` directory first), but remember to add unstaged changes of `app` from this project's base directory as well.
 
-
-Include your dApp frontend repository as a submodule
-
-`git submodule add https://github.com/your-awesome-company/dapp.git app`
-
-It's recommended to add the submodule with `https` instead of `ssh`. This way you can easily clone and install both the parent and the children repos (check this [link](https://stackoverflow.com/questions/6031494/git-submodules-and-ssh-access)).
-
-------
-
-Now the folder structure should be something like:
-```
-electron-metamask-boilerplate
-  -> node_modules/
-
-  -> extensions/
-
-    --> metamask/
-
-  -> main.js
-
-  -> package.json
-  
-  ->  [ ... ]
-
-  -> app - (your git repository)
-    --> node_modules/
-
-    --> src/
-
-    --> dist/
-
-    --> package.json
-
-    --> [ ... ]
-```
-
+If you don't get what I mean, check this [basic explanation about Git Submodules](https://gist.github.com/gitaarik/8735255).
 
 ### Setting up your project
 
-Usually the frontend code that is rendered in the browser resides within a `dist` folder, so we recommend that you build your project to a `dist ` folder so you can use our configuration without having to alter too many things. 
-
-Now, edit `main.js` to properly read `index.html` from your app's folder.
+Usually the frontend code that is rendered in the browser resides within a `dist` folder. If for some reason you decide to change the location, edit `main.js` to properly read `index.html` from your app's folder.
 
 In development mode Muon will read the extensions file from the parent folder at `/extensions/metamask`, but when bundling to production, Electron Builder will expect the same folder at `app/dist/extensions/metamask` (this can be changed in `extensions.js`).
 
-We've set up npm scripts to download MetaMask from Chrome Store. When in development run `npm run download.metamask.dev`. In production `npm run download.metamask.prod`.
+There are npm scripts to download MetaMask from Chrome Store. When in development run `npm run download.metamask.dev`. In production `npm run download.metamask.prod`.
 
 Once you're ready run `npm start` for a development server.
 
@@ -93,9 +52,7 @@ Check out [this function](https://github.com/SwapyNetwork/electron-metamask-boil
 
 Electron Builder depends on both `package.json`s to generate the installers. For more info, check the [docs](https://www.electron.build/).
 
-
-
-## External Resources
+## Resources
 
 [swapy-exchange-electron-wrapper](https://github.com/SwapyNetwork/swapy-exchange-electron-wrapper)
 
