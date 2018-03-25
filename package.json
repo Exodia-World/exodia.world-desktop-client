@@ -23,8 +23,7 @@
   },
   "homepage": "https://www.exodia.world",
   "scripts": {
-    "start": "node setup.js",
-    "restart": "cd app && ng build && cd .. && node setup.js",
+    "start": "cd app && ng build && cd .. && node setup.js",
     "pack": "electron-builder --dir",
     "dist": "electron-builder",
     "copy.metamask.prod": "cp -R extensions app/dist && cp extensions.js app/dist && cp main.js app/dist",
