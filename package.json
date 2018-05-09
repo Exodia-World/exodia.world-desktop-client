@@ -14,14 +14,13 @@
     "ethereum",
     "decentralized",
     "desktop",
-    "app",
     "exodia",
     "exodia.world"
   ],
   "bugs": {
     "url": ""
   },
-  "homepage": "https://www.exodia.world",
+  "homepage": "https://exodia.world",
   "scripts": {
     "start": "cd app && ng build && cd .. && node setup.js",
     "pack": "electron-builder --dir",
@@ -38,7 +37,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://bitbucket.org/exodia-world/exodia.world-desktop-client.git"
+    "url": "git+https://github.com/Exodia-World/exodia.world-desktop-client.git"
   },
   "build": {
     "appId": "exodia.world-desktop-client",
