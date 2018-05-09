@@ -10,7 +10,7 @@ A desktop client for Exodia.World's marketplace, digital wallet, crowdfunding, e
 
 ## Overview
 
-exodia.world-desktop-client wraps [exodia.world-web-client](https://bitbucket.org/exodia-world/exodia.world-web-client) as a *submodule* so that we may build the same code for both web and desktop users.
+exodia.world-desktop-client wraps [exodia.world-web-client](https://github.com/Exodia-World/exodia.world-web-client) as a *submodule* so that we may build the same code for both web and desktop users.
 
 ## How it works
 
